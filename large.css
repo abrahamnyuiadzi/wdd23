@@ -1,0 +1,127 @@
+@media only screen and (min-width: 990px) {
+	:root {
+		--white-space: 8px;
+	}
+
+	header {
+		grid-template-columns: 2.4fr 0.4fr;
+		background-color: violet;
+	}
+
+	header .header-title-wrapper {
+		display: grid;
+		grid-template-columns: 80px 190px 1fr;
+	}
+	header .header-menu {
+		display: none;
+	}
+
+	header .hamburger-menu {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-self: center;
+		justify-self: flex-end;
+		width: 600px;
+		height: 100%;
+		background-color: #00000000;
+	}
+
+	header .hamburger-menu ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-self: flex-end;
+		margin: 0;
+		margin-left: calc(var(--white-space) * 6);
+		height: 40px;
+	}
+	header .hamburger-menu ul a:first-child {
+		border: none;
+	}
+
+	header .hamburger-menu ul a {
+		width: 90px;
+		height: auto;
+		padding: 0.6rem;
+		border: none;
+		color: var(--font-color);
+	}
+
+	.header-menu a:hover {
+		background-color: var(--warn);
+		color: var(--bg--contrast-light-01);
+	}
+
+	.header-title-title{
+		width: auto;
+	}
+
+	/***Main***/
+	main {
+		margin: 0 calc(var(--white-space) * 2);
+		grid-template-columns: 1fr 2.1fr 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas:
+			"main-event main-hero main-spotlights"
+			"main-weather main-hero main-spotlights"
+			"main-join main-news main-spotlights"
+		;
+	}
+	main .hero {
+		height: calc(400px + var(--white-space) * 3);
+	}
+	main .hero button{
+		background-color: blue;
+	}
+
+	main .event {
+		grid-area: main-event;
+		display: block;
+		text-align: center;
+	}
+
+	main .event-picture-wrapper {
+		height: 130px;
+		width: 200px;
+		margin: 0 auto;
+		margin-bottom: var(--white-space);
+	}
+
+	main .event p {
+		display: none;
+	}
+
+	main .event button {
+		width: 70%;
+
+	}
+
+	main .weather {
+		grid-area: main-weather;
+	}
+	main .spotlights-wrapper {
+		height: calc(600px + var(--white-space) * 6);
+		flex-direction: column;
+		padding: calc(var(--white-space) * 1.2);
+		gap: calc(var(--white-space) / 2);
+	}
+
+	main .spotlights-wrapper .spotlight {
+		width: calc(100% - var(--white-space) * 2);
+	}
+
+	main .spotlights-wrapper .spotlight:last-child {
+		width: calc(100% - var(--white-space) * 2);
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		gap: var(--white-space);
+		background-color: var(--font-color);
+		color: var(--bg--contrast-light-01);
+	}
+}
+
+
+
