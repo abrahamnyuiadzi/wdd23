@@ -1,95 +1,61 @@
+
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
   <head>
-    <meta charset="utf-8" />
-    <meta name ="viewport" content =  "width  = device-width , initial -scale = 1.0 ">
-    <title>Assigment portal </title>
-<style>
-  * {
-	margin: 0;
-	padding: 0;
-}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
 
-body {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-family: Acme, Arial, sans-serif;
-}
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
 
-h1 {
-	font-size: 1.5rem;
-}
+    <h1>Book of mormon </h1>
 
-main {
-	margin: 1rem auto;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 1rem;
-	background-color: #ddd;
-	display: flex;
-	flex-direction: column;
-}
+    <div>
+      <label for="item">Enter Book and Chapter:</label>
+      <input type="text" name="item" id="item">
+      <button>Add chapter</button>
+    </div>
 
-input,
-button {
-	padding: 0.5rem;
-}
+    <ul>
 
-button {
-	margin: 0.5rem;
-}
+    </ul>
 
-.delete {
-	width: fit-content;
-}
+    <script>
+      const list = document.querySelector('ul');
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
 
-.input {
-	display: flex;
-	gap: 1rem;
-}
+      button.addEventListener('click', () => {
+        const myItem = input.value;
+        input.value = '';
 
-.list {
-	padding: 0.5rem;
-}
+        const listItem = document.createElement('li');
+        const listText = document.createElement('span');
+        const listBtn = document.createElement('button');
 
-ul {
-	margin: 1rem;
-	list-style: none;
-}
+        listItem.appendChild(listText);
+        listText.textContent = myItem;
+        listItem.appendChild(listBtn);
+        listBtn.textContent = 'Delete';
+        list.appendChild(listItem);
 
-li {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
+        listBtn.addEventListener('click', () => {
+          list.removeChild(listItem);
+        });
 
-@media only screen and (min-width: 32.5em) {
-	h1 {
-		font-size: 2rem;
-	}
-
-	main {
-		width: 320px;
-	}
-}
-
-
-
-
-</style> 
-
-
-<script src ="script.js" ></script>
-
-<h1>📖 Book of Mormon - Top 10</h1>
-<main>
-	<label for="favchap">Enter Book and Chapter: </label>
-	<input type="text" id="favchap" placeholder="Alma 5" value="Alma 5">
-	<button type="submit">Add Chapter</button>
-	<ul id="list"></ul>
-</main> 
-
-</body>
+        input.focus();
+      });
+    </script>
+  </body>
 </html>
